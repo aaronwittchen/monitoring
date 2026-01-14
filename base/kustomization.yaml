@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: monitoring
+# Note: Don't set namespace here - manifests define their own namespaces
 
 resources:
   # CRDs and Prometheus Operator (must be applied first)
