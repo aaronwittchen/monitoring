@@ -4,11 +4,11 @@ kind: Kustomization
 namespace: monitoring
 
 resources:
-  # kube-prometheus setup (CRDs and operator)
-  - github.com/prometheus-operator/kube-prometheus/manifests/setup?ref=v0.14.0
-  # kube-prometheus main manifests
-  - github.com/prometheus-operator/kube-prometheus/manifests?ref=v0.14.0
-  # Local HTTPRoutes
+  # CRDs and Prometheus Operator (must be applied first)
+  - setup
+  # Main monitoring stack components
+  - main
+  # Custom HTTPRoutes for Istio Gateway
   - httproutes.yaml
 
 labels:
