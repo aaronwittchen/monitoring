@@ -1,0 +1,82 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: monitoring
+
+resources:
+  # kube-prometheus setup manifests
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0alertmanagerConfigCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0alertmanagerCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0podmonitorCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0probeCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0prometheusCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0prometheusagentCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0prometheusruleCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0scrapeconfigCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0servicemonitorCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/0thanosrulerCustomResourceDefinition.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/namespace.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/prometheusOperatorDeployment.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/prometheusOperatorNetworkPolicy.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/prometheusOperatorService.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/prometheusOperatorServiceAccount.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/prometheusOperatorClusterRole.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/setup/prometheusOperatorClusterRoleBinding.yaml
+  
+  # kube-prometheus main manifests
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-alertmanager.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-networkPolicy.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-podDisruptionBudget.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-prometheusRule.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-secret.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-service.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-serviceAccount.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/alertmanager-serviceMonitor.yaml
+  
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-dashboardDatasources.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-deployment.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-networkPolicy.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-prometheusRule.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-service.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-serviceAccount.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/grafana-serviceMonitor.yaml
+  
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-clusterRole.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-clusterRoleBinding.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-deployment.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-networkPolicy.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-prometheusRule.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-service.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-serviceAccount.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/kubeStateMetrics-serviceMonitor.yaml
+  
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-clusterRole.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-clusterRoleBinding.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-daemonset.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-networkPolicy.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-prometheusRule.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-service.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-serviceAccount.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/nodeExporter-serviceMonitor.yaml
+  
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-clusterRole.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-clusterRoleBinding.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-networkPolicy.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-podDisruptionBudget.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-prometheus.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-prometheusRule.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-roleBindingConfig.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-roleBindingSpecificNamespaces.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-roleConfig.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-roleSpecificNamespaces.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-service.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-serviceAccount.yaml
+  - https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/v0.14.0/manifests/prometheus-serviceMonitor.yaml
+  
+  # Local customizations
+  - httproutes.yaml
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: kube-prometheus
+    includeSelectors: false
