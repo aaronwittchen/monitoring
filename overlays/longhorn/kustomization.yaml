@@ -49,23 +49,17 @@ patches:
         path: /spec/replicas
         value: 1
 
-  # Mount PVC for Grafana
+  # Replace emptyDir with PVC for Grafana persistence
   - target:
       kind: Deployment
       name: grafana
     patch: |-
-      - op: add
-        path: /spec/template/spec/volumes/-
+      - op: replace
+        path: /spec/template/spec/volumes/0
         value:
           name: grafana-storage
           persistentVolumeClaim:
             claimName: grafana-pvc
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/0
-        value:
-          mountPath: /var/lib/grafana
-          name: grafana-storage
-          readOnly: false
 
   # Reduce resource requests for homelab
   - target:
