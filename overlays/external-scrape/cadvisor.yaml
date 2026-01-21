@@ -64,6 +64,8 @@ spec:
               readOnly: true
           securityContext:
             privileged: true
+            readOnlyRootFilesystem: false
+      automountServiceAccountToken: false
       tolerations:
         - operator: Exists
       nodeSelector:
