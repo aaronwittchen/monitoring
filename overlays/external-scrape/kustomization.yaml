@@ -5,6 +5,7 @@ resources:
   - namespace.yaml
   - node-exporter.yaml
   - kube-state-metrics.yaml
+  - cadvisor.yaml
 
 commonLabels:
   app.kubernetes.io/part-of: external-monitoring
